@@ -1,0 +1,38 @@
+{
+    "manifest_version": 3,
+    "name": "DouBao Assistant (Edge)",
+    "version": "1.0.0",
+    "description": "豆包长对话问题目录：自动提取、搜索、跳转（本地存储）",
+    "permissions": ["storage", "tabs", "activeTab", "sidePanel"],
+    "host_permissions": ["https://www.doubao.com/*"],
+    "background": {
+      "service_worker": "dist/background/background.js",
+      "type": "module"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.doubao.com/*"],
+        "js": ["dist/content/content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "side_panel": {
+      "default_path": "dist/src/sidebar/index.html"
+    },
+    "icons": {
+      "16": "assets/logo-128.png",
+      "32": "assets/logo-128.png",
+      "48": "assets/logo-128.png",
+      "128": "assets/logo-128.png"
+    },
+    "action": {
+      "default_title": "DouBao Assistant",
+      "default_icon": {
+        "16": "assets/logo-128.png",
+        "32": "assets/logo-128.png",
+        "48": "assets/logo-128.png",
+        "128": "assets/logo-128.png"
+      }
+    }
+  }
+  

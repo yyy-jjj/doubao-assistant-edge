@@ -1,0 +1,220 @@
+* { box-sizing: border-box; }
+
+html, body, #app { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  background: #f7f8fc;
+  color: #111827;
+}
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+/* UI优化：标题与描述层级 */
+.panel-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.2px;
+}
+
+.panel-desc {
+  margin-top: -2px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* UI优化：搜索框图标与聚焦状态 */
+.search-wrap {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.search {
+  width: 100%;
+  border: 1px solid #d8deea;
+  border-radius: 10px;
+  padding: 10px 12px 10px 30px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.14);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* UI优化：统一按钮风格 */
+.sort-btn {
+  border: 1px solid #c7d2fe;
+  background: linear-gradient(135deg, #eef2ff, #e5e7ff);
+  color: #3730a3;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.16);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sort-btn:hover {
+  background: linear-gradient(135deg, #e5eaff, #dde3ff);
+  border-color: #a5b4fc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.sort-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.16);
+}
+
+.meta-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.meta {
+  font-size: 12px;
+  color: #71717a;
+  line-height: 1.35;
+}
+
+.list {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 2px;
+}
+
+/* UI优化：丝滑滚动条 */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #d4d8e1;
+  border-radius: 999px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: #b8bfcd;
+}
+
+/* UI优化：卡片节奏与动效 */
+.item {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  padding: 11px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.item:hover {
+  border-color: #c7d2fe;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12);
+}
+
+/* UI优化：激活态更明显（左侧条） */
+.item.active {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 3px;
+  background: #6366f1;
+  border-radius: 999px;
+}
+
+.text {
+  line-height: 1.48;
+  font-size: 14px;
+  color: #111827;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* UI优化：关键词高亮柔和 */
+.text mark {
+  background: #fde68a;
+  color: #1f2937;
+  padding: 0 2px;
+  border-radius: 4px;
+}
+
+/* UI优化：空状态更友好 */
+.empty {
+  border: 1px dashed #d1d5db;
+  border-radius: 10px;
+  background: #fff;
+  padding: 16px 14px;
+  color: #6b7280;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.empty-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4f46e5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.empty-text {
+  line-height: 1.4;
+}
