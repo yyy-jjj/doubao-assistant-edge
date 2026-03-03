@@ -6,6 +6,10 @@
 - 生成结构化问题目录
 - 关键词搜索并高亮匹配
 - 点击目录一键跳转到原对话位置
+## 效果演示
+
+<img width="2124" height="1348" alt="a55418d0-041a-47ab-9c58-07bab50bf8d1" src="https://github.com/user-attachments/assets/77765b93-ea68-4a8f-888e-dae8199669e0" />
+<img width="2116" height="1340" alt="bd4fa5b5-eaad-4fe7-8035-35b6f5d2142e" src="https://github.com/user-attachments/assets/ce2bf1b0-880a-42f4-9c05-7c1fb2b3c12d" />
 
 ## 技术栈
 
@@ -39,5 +43,6 @@ npm run build
 - `src/shared`：共享类型与消息常量
 
 ## 隐私说明
+
 
 本插件不收集任何用户数据，所有内容仅保存在本地。
